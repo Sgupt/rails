@@ -54,6 +54,11 @@ class DefaultScopingTest < ActiveRecord::TestCase
     assert_equal 'Jamis', DeveloperCalledJamis.create!.name
   end
 
+  def test_default_scope_with_conditions_hash_as_class_method
+    assert_equal Developer.where(name: 'David').map(&:id).sort, ClassMethodDeveloperCalledDavid.all.map(&:id).sort
+    assert_equal 'David', ClassMethodDeveloperCalledDavid.create!.name
+  end
+
   def test_default_scoping_with_threads
     skip "in-memory database mustn't disconnect" if in_memory_db?
 

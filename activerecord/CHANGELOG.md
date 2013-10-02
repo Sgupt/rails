@@ -1,3 +1,9 @@
+*   `scope_attributes?` is now based on ``scope_attributes.any?`` and therefore
+     does not ignore the default scope when it is defined with a class method
+     in the model.
+
+    *Adrien Siami*
+
 *   `create_savepoint`, `rollback_to_savepoint` and `release_savepoint` accept
     a savepoint name.
 
